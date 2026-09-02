@@ -1,0 +1,74 @@
+:root {
+  --green: #063c22;
+  --dark-green: #002d1c;
+  --blue: #123f8c;
+  --gold: #f1ad09;
+  --paper: #f6f3eb;
+  --white: #fff;
+  --display: "Barlow Condensed", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: #d9dde0; color: #0a2618; font-family: var(--display); }
+.poster { width: min(100%, 1024px); margin: 0 auto; background: var(--paper); box-shadow: 0 0 30px #0002; overflow: hidden; }
+
+/* Hero uses a clean crop of the original poster; all visible copy remains HTML. */
+.hero { min-height: 434px; padding: 62px 35px 34px; position: relative; background: url("assets/hero.jpg") center/cover no-repeat; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand__logo { width: 85px; height: 85px; border-radius: 12px; object-fit: cover; }
+.bonita__logo { width: 185px; height: 95px; border-radius: 5px; object-fit: fill }
+.brand h1 { margin: 0; color: var(--blue); font-family: Montserrat, Arial, sans-serif; font-size: clamp(1.45rem, 3.15vw, 2rem); letter-spacing: .01em; }
+.overview { margin-top: 27px; max-width: 405px; }
+.gold-line { display: block; width: 640px; max-width: 120%; height: 2px; margin-bottom: 27px; background: var(--gold); }
+.overview h2 { margin: 0; font-size: 2rem; line-height:1; }
+.overview p { margin: 6px 0; color: #1b2721; font-size: 1.25rem; }
+.bonita-mark { position: absolute; right: 14px; bottom: 9px; color: white; text-align: center; text-shadow: 0 2px 5px #000; }
+.bonita-mark strong { display: block; font-family: Georgia, serif; font-size: 2.65rem; line-height: .9; }
+.bonita-mark span { font-family: Georgia, serif; font-size: .62rem; letter-spacing: .23em; }
+
+.story { display: grid; grid-template-columns: 39.5% 60.5%; min-height: 678px; }
+.benefits { padding: 8px 22px 0 34px; background: #faf8f2; }
+.benefit { min-height: 126px; padding: 15px 0; display: grid; grid-template-columns: 88px 1fr; gap: 13px; align-items: start; border-bottom: 1px solid var(--gold); }
+.benefit:last-child { border-bottom: 0; }
+.benefit h3 { margin: 4px 0 5px; font-size: 1.32rem; line-height: 1.05; }
+.benefit p { margin: 0; color: #15251c; font-size: 1rem; line-height: 1.28; }
+.icon { width: 78px; aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle at 65% 20%, #074e32, #001a11 72%); }
+.icon svg { width: 58px; height: 58px; fill: none; stroke: white; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.photo-mosaic { background: url("assets/mosaic.jpg") center/cover no-repeat; }
+
+.portfolio { padding: 3px 15px 5px; }
+.section-title { display: grid; grid-template-columns: 1fr auto 1fr; gap: 17px; align-items: center; }
+.section-title span { height: 1px; background: var(--gold); }
+.section-title h2 { margin: 0; color: #0a4a29; font-size: 2rem; letter-spacing: .055em; }
+.products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.product h3 { margin: 1px 0 8px; color: #0a4a29; text-align: center; font-size: 1.28rem; }
+.product img { width: 100%; height: 171px; display: block; object-fit: cover; }
+
+.contact { min-height: 174px; display: grid; grid-template-columns: 42% 58%; color: white; background: #003a25; }
+.contact__copy { padding: 19px 20px 13px 47px; background: radial-gradient(circle at 35% 20%, #075b39, #003420 70%); }
+.contact__qr { padding: 19px 20px 13px 47px; background: radial-gradient(circle at 35% 20%, #075b39, #003420 70%); }
+.contact h2 { margin: 0; color: var(--gold); font-size: 2rem; line-height: 1; }
+.contact__rule { display: flex; margin: 12px 0 8px; height: 3px; }
+.contact__rule span { flex: 1; background: var(--gold); }.contact__rule i { width: 32px; background: #2f9e44; }.contact__rule b { width: 32px; background: #e81939; }
+.contact h3 { margin: 0; font-size: 1.75rem; }.contact p, .contact a { margin: 0; color: white; font-size: 1.05rem; line-height: 1.3; text-decoration: none; }.contact .phone { color: var(--gold); font-weight: 600; }
+.ship { background: linear-gradient(90deg, #003a25 0%, transparent 20%), url("assets/ship.jpg") center/cover no-repeat; }
+.qr__ln { background: linear-gradient(90deg, #003a25 0%, transparent 20%), url("assets/qr_ln.jpeg") center/cover no-repeat; }
+
+/* Tablet/mobile: stack content while preserving poster hierarchy. */
+@media (max-width: 720px) {
+  .hero { min-height: 410px; padding: 30px 22px; background-position: 57% center; }
+  .brand { align-items: flex-start; }.brand__logo { width: 65px; height: 65px; }.brand h1 { max-width: 300px; }
+  .overview { margin-top: 38px; max-width: 300px; }.overview h2 { font-size: 1.7rem; }.overview p { font-size: 1.05rem; }
+  .story { grid-template-columns: 1fr; }.photo-mosaic { min-height: 520px; order: -1; }
+  .benefits { padding: 8px 22px; }.benefit { grid-template-columns: 76px 1fr; min-height: auto; }.icon { width: 68px; }
+  .section-title { grid-template-columns: 35px 1fr 35px; gap: 10px; text-align: center; }.section-title h2 { font-size: 1.65rem; }
+  .products { grid-template-columns: repeat(2, 1fr); gap: 14px 7px; }.product img { height: auto; aspect-ratio: 1.42; }
+  .contact { grid-template-columns: 1fr; }.contact__copy { padding: 25px; }.ship { min-height: 210px; background-image: linear-gradient(180deg, #003a25 0%, transparent 30%), url("assets/ship.jpg"); }
+}
+
+@media (max-width: 430px) {
+  .hero { min-height: 360px; }.brand h1 { font-size: 1.15rem; }.bonita-mark { transform: scale(.75); transform-origin: bottom right; }
+  .photo-mosaic { min-height: 400px; }.products { grid-template-columns: 1fr; }.product img { max-height: 250px; }.contact h2 { font-size: 1.7rem; }
+}
+
+@media print { body { background: white; }.poster { box-shadow: none; } }
